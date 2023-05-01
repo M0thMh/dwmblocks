@@ -1,0 +1,17 @@
+#!/bin/bash
+
+ESTATUS=$(cat /sys/class/net/enp1s0/operstate)
+WSTATUS=$(cat /sys/class/net/wlp2s0/operstate)
+WESSID=$(iw dev wlp2s0 info \| grep ssid \| awk \'{ print \$2 }\')
+
+
+
+echo $WESSID
+#if [[ $ESTATUS == "up" ]];then
+#	echo "ETH CON";
+#
+#elif [[ $WSTATUS == "up" ]];then
+#	echo "WIFI: $WESSID";
+#
+#
+#fi

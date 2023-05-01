@@ -1,0 +1,13 @@
+#! /env/bin/python3 
+
+import os
+
+total  = os.popen("free -k | grep Mem | awk '{ print $2 }'")
+free   = os.popen("free -k | grep Mem | awk '{ print $7 }'")
+
+TOTAL = int(total.read())
+FREE  = int(free.read())
+
+perc = int(( ( TOTAL - FREE ) / TOTAL * 100 ))
+
+print( f"{perc} %" )
